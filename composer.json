@@ -1,0 +1,13 @@
+{
+    "name": "moyu/office",
+    "description": "摸鱼办 - 每日摸鱼日报生成器",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.4",
+        "ext-gd": "*",
+        "ext-curl": "*",
+        "ext-mbstring": "*",
+        "phpmailer/phpmailer": "^6.8"
+    }
+}
