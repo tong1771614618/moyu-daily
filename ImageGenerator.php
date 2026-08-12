@@ -156,7 +156,6 @@ class ImageGenerator
         $actualHeight = min($y + 60, $this->height);
         $cropped = imagecrop($this->image, ['x' => 0, 'y' => 0, 'width' => $this->width, 'height' => $actualHeight]);
         if ($cropped !== false) {
-            imagedestroy($this->image);
             $this->image = $cropped;
         }
 
@@ -166,7 +165,6 @@ class ImageGenerator
         }
         $filePath = rtrim($this->outputDir, '/') . '/' . $this->outputName;
         imagepng($this->image, $filePath);
-        imagedestroy($this->image);
 
         return $filePath;
     }
@@ -243,7 +241,6 @@ class ImageGenerator
         $this->image = $tempImg;
         $measureEndY = $callback($contentX, $contentY, $contentW);
         $this->image = $savedImage;
-        imagedestroy($tempImg);
 
         // 计算实际卡片高度
         $cardH = ($measureEndY - $y) + $innerPad;
